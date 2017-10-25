@@ -2,9 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Clue</title>
+    <script src="lab4.js"
+            type="text/javascript"></script>
 </head>
 <body>
+<p>
+    Rooms: Kitchen, Study, Living Room, Dining Room, Library, Lounge, Billiards Room, Hall, Ball Room<br/>
+    Guests: Mrs. Peacock, Mrs. Green, Miss Scarlet, Colonel Mustard, Professor Plum, Mrs White<br/>
+    Weapons: Pistol, Knife, Wrench, Lead Pipe, Candlestick, Revolver <br/>
+</p>
 
+<p>
+<FORM id="welcome" onsubmit="return emptyFieldCheck()">
+    Name:
+    <input type="text" name = "user_name" autofocus="true" required="required"/>
+    <input type="button" value="Enter" onclick="welcomeName()"/>
+</FORM>
+<p id="select_room">
+
+<FORM>
+    <label>Guess Room:</label>
+    <select name="rooms" id = "rooms">
+        <option value="Kitchen">Kitchen</option>
+        <option value="Study">Study</option>
+        <option value="Living Room">Living Room</option>
+        <option value="Dining Room">Dining Room</option>
+        <option value="Lounge">Lounge</option>
+        <option value="Billiards Room">Billiards Room</option>
+        <option value="Hall">Hall</option>
+        <option value="Ball Room">Ball Room</option>
+        <option value="Library">Library</option>
+    </select>
+
+    <br/>
+    <label>Guess Suspect:</label>
+    <select name="suspects">
+        <option value="Mrs. Peacock">Mrs. Peacock</option>
+        <option value="Mrs. Green">Mrs. Green</option>
+        <option value="Miss Scarlet">Miss Scarlet</option>
+        <option value="Colonel Mustard">Colonel Mustard</option>
+        <option value="Professor Plum">Professor Plum</option>
+        <option value="Mrs. White">Mrs. White</option>
+    </select>
+    <br/>
+    <label>Guess Weapon:</label>
+    <select name="weapons">
+        <option value="Pistol">Pistol</option>
+        <option value="Knife">Knife</option>
+        <option value="Wrench">Wrench</option>
+        <option value="Lead Pipe">Lead Pipe</option>
+        <option value="Candlestick">Candlestick</option>
+        <option value="Revolver">Revolver</option>
+    </select>
+    <br/>
+    <input type="button" disabled="true" value="Guess" onclick="window.location.assign('sample3.html')"/>
+</FORM>
+<p>
+    That was the correct guess! Mrs. Green did it with the Candlestick in the Dining Room!</br>
+    Click to start a new game:
+    <input type="button" value="New Game" onclick="window.location.assign('sample1.html')"/>
+</p>
 </body>
+
 </html>
