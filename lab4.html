@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Clue</title>
-    <script src="lab4.js"
-            type="text/javascript"></script>
 </head>
 <body>
 <p>
@@ -16,7 +14,7 @@
 <p>
 <FORM id="welcome" onsubmit="return emptyFieldCheck()">
     Name:
-    <input type="text" name = "user_name" autofocus="true" required="required"/>
+    <input type="text" name = "user_name" autofocus="true" placeholder="name_here" required="required"/>
     <input type="button" value="Enter" onclick="welcomeName()"/>
 </FORM>
 <p id="select_room">
@@ -37,7 +35,7 @@
 
     <br/>
     <label>Guess Suspect:</label>
-    <select name="suspects">
+    <select name="suspects" id = "suspects">
         <option value="Mrs. Peacock">Mrs. Peacock</option>
         <option value="Mrs. Green">Mrs. Green</option>
         <option value="Miss Scarlet">Miss Scarlet</option>
@@ -47,7 +45,7 @@
     </select>
     <br/>
     <label>Guess Weapon:</label>
-    <select name="weapons">
+    <select name="weapons" id = "weapons">
         <option value="Pistol">Pistol</option>
         <option value="Knife">Knife</option>
         <option value="Wrench">Wrench</option>
@@ -56,13 +54,22 @@
         <option value="Revolver">Revolver</option>
     </select>
     <br/>
-    <input type="button" disabled="true" value="Guess" onclick="window.location.assign('sample3.html')"/>
+    <input type="button" id = "guess" disabled="true" value="Guess" onclick="checkForWin()"/>
 </FORM>
-<p>
-    That was the correct guess! Mrs. Green did it with the Candlestick in the Dining Room!</br>
-    Click to start a new game:
-    <input type="button" value="New Game" onclick="window.location.assign('sample1.html')"/>
-</p>
-</body>
+<p id ='compute'>
 
+</p>
+<input type="button" id ="history button" value = "Hide History" onclick="show_history()"><br/>
+<div id="history">
+
+</div>
+
+<input type="button" id = "record button" value = "Hide Record" onclick="show_record()"><br/>
+<div id="record">
+
+</div>
+
+</body>
+<script src="lab4.js"
+type="text/javascript"></script>
 </html>
