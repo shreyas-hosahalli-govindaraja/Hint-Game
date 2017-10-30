@@ -36,21 +36,6 @@ function welcomeAgain() {
     modify_choice();
 }
 
-function today() {
-    var current = new Date();
-    var yyyy = current.getFullYear();
-    var month = current.getMonth() + 1;
-    var date = current.getDate();
-
-    if (month < 10) {
-        month = '0' + month;
-    }
-    if (date < 10) {
-        date = '0' + date;
-    }
-    return date + '/' + month + '/' + yyyy;
-
-}
 
 function checkForWin() {
     var e = document.getElementById('rooms');
@@ -93,7 +78,7 @@ function checkForWin() {
 
 function refresh() {
     sessionStorage.clear();
-    var template = "<p>\n" +
+    var template = "<p id='display'>\n" +
         "    Rooms: Kitchen, Study, Living Room, Dining Room, Library, Lounge, Billiards Room, Hall, Ball Room<br/>\n" +
         "    Guests: Mrs. Peacock, Mrs. Green, Miss Scarlet, Colonel Mustard, Professor Plum, Mrs White<br/>\n" +
         "    Weapons: Pistol, Knife, Wrench, Lead Pipe, Candlestick, Revolver <br/>\n" +
@@ -158,6 +143,9 @@ function refresh() {
         "</div>\n";
     reset();
     document.getElementById('render').innerHTML = template;
+    document.getElementById('display').innerHTML = "Rooms: "+rooms+"<br/>";
+    document.getElementById('display').innerHTML += "Suspects: "+suspects+"<br/>";
+    document.getElementById('display').innerHTML += "Weapons: "+weapons+"<br/>";
     local_storage();
 }
 
@@ -338,12 +326,12 @@ function local_storage(player) {
             document.getElementById('record').innerHTML += names.k[i];
         }
         if (player === 'Computer') {
-            var temp_1 = "Computer vs  " + domstorage.user + "," + today() + "  Computer won<br />";
+            var temp_1 = "Computer vs  " + domstorage.user + "," + new Date() + "  Computer won<br />";
             names.k.push(temp_1);
             document.getElementById('record').innerHTML += temp_1;
         }
         else if ((player === user_name) && (user_name !== undefined)) {
-            var temp_2 = "Computer vs  " + domstorage.user + ", " + today() + "  " + domstorage.user + " won<br />";
+            var temp_2 = "Computer vs  " + domstorage.user + ", " + new Date() + "  " + domstorage.user + " won<br />";
             names.k.push(temp_2);
             document.getElementById('record').innerHTML += temp_2;
         }
@@ -352,13 +340,13 @@ function local_storage(player) {
     }
     else {
         if (player === 'Computer') {
-            temp_1 = "Computer vs  " + domstorage.user + "," + today + "  Computer won<br />";
+            temp_1 = "Computer vs  " + domstorage.user + "," + new Date() + "  Computer won<br />";
             names.k.push(temp_1);
             document.getElementById('record').innerHTML += temp_1;
 
         }
         else if ((player === user_name) && domstorage.user !== undefined) {
-            temp_2 = "Computer vs  " + domstorage.user + ", " + today + "  " + domstorage.user + " won<br />";
+            temp_2 = "Computer vs  " + domstorage.user + ", " + new Date() + "  " + domstorage.user + " won<br />";
             names.k.push(temp_2);
             document.getElementById('record').innerHTML += temp_2;
         }
