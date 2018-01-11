@@ -1,2 +1,2 @@
-# SER421-lab4
-SER421-lab4
+Hint Game
+Self-contained, or single page application (SPA), for a simplified version of the board game Clue using HTML5/Javascript.
